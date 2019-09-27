@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args, prefix, gsnWinner, botCommanderR
    if(!args[0]) {
        let Sembed = new Discord.RichEmbed()
        .setColor('#5780cd')
-       .setAuthor(bot.user.username + "help", bot.user.displayAvatarURL)
+       .setAuthor(bot.user.username + " help", bot.user.displayAvatarURL)
        .setThumbnail( message.guild.iconURL)
        .setTimestamp()
        .setDescription(`These are the avaliable commands for ${bot.user.username}!\nThe bot prefix is: ${prefix}\n**Do** ${prefix}help [Command] **- for further information**`)
@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args, prefix, gsnWinner, botCommanderR
        if(!args[0]) {
        let Saembed = new Discord.RichEmbed()
        .setColor('#5780cd')
-       .setAuthor(bot.user.username + "help", bot.user.displayAvatarURL)
+       .setAuthor(bot.user.username + " help", bot.user.displayAvatarURL)
        .setThumbnail( message.guild.iconURL)
        .setTimestamp()
        .setDescription(`These are the avaliable commands for ${bot.user.username}!\nThe bot prefix is: ${prefix}\n**Do** ${prefix}help [Command] **- for further information**`)
