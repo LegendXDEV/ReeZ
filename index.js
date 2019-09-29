@@ -105,7 +105,7 @@ bot.on('message', message => {
     let max3 = 0;
 
     if(message.author.id === "623102688602619914"){
-      if(!message.content === `${prefix}start`) return;
+      if(!message.content === `${prefix}start-guess`) return;
     } else {
       if(message.author.bot || message.channel.type === "dm") return;
     }
@@ -143,7 +143,7 @@ bot.on('message', message => {
     let defaultGame;
     // 1 = normal guess game
     // 2 = the user is told if its higher or lower
-    if(message.guild.id == "623059644134326272"){
+    if(message.guild.id == ""){
       defaultGame = "2";
     } else {
       defaultGame = "1";
@@ -166,7 +166,7 @@ bot.on('message', message => {
     // premium Servers
     let premiumServer;
     let premiumGuildID = message.guild.id
-    if(premiumGuildID == "623059644134326272" || premiumGuildID == ""){
+    if(premiumGuildID == "623059644134326272"){
       premiumServer = true;
     } else {
       premiumServer = false;
