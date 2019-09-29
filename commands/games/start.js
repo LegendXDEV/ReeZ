@@ -67,6 +67,9 @@ module.exports.run = async (bot, message, args, prefix, gsnWinner, botCommanderR
            {
              message.channel.send(`${message.author}, ${args} is not a valid number`).then(msg => msg.delete(2000));
            }
+           if(message.content.startsWith(`${prefix}start-guess -`) || message.content.startsWith(`${prefix}create-guess -`) ||  message.content.startsWith(`${prefix}create-guess 0`) || message.content.startsWith(`${prefix}start-guess 0`) || message.content.startsWith(`${prefix}start-guess 1`) || message.content.startsWith(`${prefix}create-guess 1`)) {
+             message.channel.send(`${emote.cross}Failed to generate. We can not do negative numbers or 1 or 0, must be 2 or more!.`)
+           }
            else
            {
            message.channel.send(`${emote.guess} **| Generating a new random number!**\nGuess the number between **1** and **${max}**`)
@@ -162,6 +165,9 @@ if (args == ""){
           {
             message.channel.send(`${message.author}, ${args} is not a valid number`).then(msg => msg.delete(2000));
           }
+          if(message.content.startsWith(`${prefix}start-guess -`) || message.content.startsWith(`${prefix}create-guess -`) ||  message.content.startsWith(`${prefix}create-guess 0`) || message.content.startsWith(`${prefix}start-guess 0`) || message.content.startsWith(`${prefix}start-guess 1`) || message.content.startsWith(`${prefix}create-guess 1`)) {
+            message.channel.send(`${emote.cross}Failed to generate. We can not do negative numbers or 1 or 0, must be 2 or more!.`)
+          }
           else
           {
           message.channel.send(`${emote.guess} **| Generating a new random number!**\nGuess the number between **1** and **${max}**`)
@@ -188,7 +194,9 @@ if (args == ""){
             }
             // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             message.channel.send(winMsg).then((msg) => msg.pin());
-            message.channel.send(`${prefix}start-guess ${max}`).then(msg => msg.delete(0));
+            setTimeout(function() {
+              message.channel.send(`${prefix}start-guess ${max}`).then(msg => msg.delete(0));
+            }, 1)
             botLogsChannel.send(collected)
             console.log(collected)
               let role = message.guild.roles.find(x => x.name === gsnWinner);
@@ -202,7 +210,6 @@ if (args == ""){
               botLogsChannel.send(collected)
 
           });
-
 
         }
   }
